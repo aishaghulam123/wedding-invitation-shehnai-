@@ -1,0 +1,2228 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-editorial: "DM Sans", sans-serif;
+}
+
+:root {
+  --radius: 0.375rem;
+  --wedding-ink: oklch(0.37 0.043 132);
+  --wedding-gold: oklch(0.6 0.075 78);
+  --scratch-layer: oklch(0.74 0.09 78);
+  --scratch-grain: oklch(0.99 0.03 90);
+  --background: oklch(0.96 0.018 101);
+  --foreground: oklch(0.25 0.035 139);
+  --card: oklch(0.96 0.018 101);
+  --card-foreground: oklch(0.25 0.035 139);
+  --popover: oklch(0.98 0.012 101);
+  --popover-foreground: oklch(0.25 0.035 139);
+  --primary: oklch(0.49 0.055 137);
+  --primary-foreground: oklch(0.98 0.014 101);
+  --secondary: oklch(0.89 0.03 102);
+  --secondary-foreground: oklch(0.32 0.045 137);
+  --muted: oklch(0.91 0.021 100);
+  --muted-foreground: oklch(0.43 0.027 119);
+  --accent: oklch(0.79 0.075 75);
+  --accent-foreground: oklch(0.27 0.036 118);
+  --destructive: oklch(0.55 0.18 28);
+  --destructive-foreground: oklch(0.98 0.014 101);
+  --border: oklch(0.8 0.029 112);
+  --input: oklch(0.86 0.026 110);
+  --ring: oklch(0.61 0.061 130);
+  --chart-1: oklch(0.54 0.06 137);
+  --chart-2: oklch(0.7 0.078 78);
+  --chart-3: oklch(0.64 0.08 42);
+  --chart-4: oklch(0.66 0.044 192);
+  --chart-5: oklch(0.78 0.064 105);
+  --sidebar: oklch(0.95 0.02 101);
+  --sidebar-foreground: oklch(0.25 0.035 139);
+  --sidebar-primary: oklch(0.49 0.055 137);
+  --sidebar-primary-foreground: oklch(0.98 0.014 101);
+  --sidebar-accent: oklch(0.89 0.03 102);
+  --sidebar-accent-foreground: oklch(0.32 0.045 137);
+  --sidebar-border: oklch(0.8 0.029 112);
+  --sidebar-ring: oklch(0.61 0.061 130);
+}
+
+.dark {
+  --background: oklch(0.24 0.028 137);
+  --foreground: oklch(0.95 0.018 101);
+  --card: oklch(0.28 0.03 137);
+  --card-foreground: oklch(0.95 0.018 101);
+  --popover: oklch(0.28 0.03 137);
+  --popover-foreground: oklch(0.95 0.018 101);
+  --primary: oklch(0.77 0.07 79);
+  --primary-foreground: oklch(0.25 0.035 139);
+  --secondary: oklch(0.34 0.035 137);
+  --secondary-foreground: oklch(0.95 0.018 101);
+  --muted: oklch(0.32 0.027 137);
+  --muted-foreground: oklch(0.77 0.026 105);
+  --accent: oklch(0.43 0.045 132);
+  --accent-foreground: oklch(0.95 0.018 101);
+  --destructive: oklch(0.68 0.17 26);
+  --destructive-foreground: oklch(0.98 0.014 101);
+  --border: oklch(0.42 0.034 132);
+  --input: oklch(0.4 0.03 132);
+  --ring: oklch(0.77 0.07 79);
+  --chart-1: oklch(0.72 0.07 137);
+  --chart-2: oklch(0.79 0.075 78);
+  --chart-3: oklch(0.74 0.075 42);
+  --chart-4: oklch(0.75 0.052 192);
+  --chart-5: oklch(0.81 0.064 105);
+  --sidebar: oklch(0.28 0.03 137);
+  --sidebar-foreground: oklch(0.95 0.018 101);
+  --sidebar-primary: oklch(0.77 0.07 79);
+  --sidebar-primary-foreground: oklch(0.25 0.035 139);
+  --sidebar-accent: oklch(0.34 0.035 137);
+  --sidebar-accent-foreground: oklch(0.95 0.018 101);
+  --sidebar-border: oklch(0.42 0.034 132);
+  --sidebar-ring: oklch(0.77 0.07 79);
+}
+
+@layer base {
+  html,
+  body {
+    min-width: 320px;
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-editorial);
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+.invitation-scene,
+.stage-fixed {
+  /* Text ke size ke liye reference width (portrait ratio). */
+  --stage-w: min(100vw, calc(100svh * 0.5628));
+}
+
+.invitation-scene {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: min(34rem, 100svh);
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+/* ---- Fixed stage: video/cover hamesha screen par rehti hai; invitation iske upar scroll hota hai ---- */
+.stage-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  container-type: size;
+  background: oklch(0.9 0.04 86);
+}
+
+.stage-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--box-w);
+  aspect-ratio: var(--ratio);
+  transform: translate(-50%, -50%);
+}
+
+.stage-fixed.fit-cover { --box-w: max(100cqw, calc(100cqh * var(--ratio))); }
+.stage-fixed.fit-contain { --box-w: min(100cqw, calc(100cqh * var(--ratio))); }
+.stage-fixed.fit-cover .video-backdrop { display: none; }
+
+.stage-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 40%, oklch(0.97 0.035 90 / 55%), oklch(0.93 0.05 86 / 75%));
+  opacity: calc(var(--veil, 0) * 0.85);
+  pointer-events: none;
+}
+
+.video-backdrop {
+  position: absolute;
+  inset: 0;
+}
+
+.couple-reveal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: var(--stage-w);
+  transform: translateX(-50%);
+}
+
+.invitation-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  opacity: 1;
+  transition: opacity 450ms ease;
+}
+
+.invitation-cover.is-opening { pointer-events: none; }
+
+.invitation-cover.is-sealed .cover-artwork {
+  animation: cover-arrive 1.3s cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+.cover-artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.seal-trigger {
+  position: absolute;
+  left: var(--seal-x);
+  top: var(--seal-y);
+  z-index: 1;
+  width: var(--seal-size);
+  aspect-ratio: 1;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.seal-trigger:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.55rem;
+}
+
+.seal-trigger:disabled {
+  cursor: default;
+}
+
+.seal-shimmer {
+  position: absolute;
+  inset: 5%;
+  overflow: hidden;
+  border-radius: 50%;
+  pointer-events: none;
+  mask-image: radial-gradient(circle, #000 22%, transparent 73%);
+}
+
+.seal-shimmer::after {
+  position: absolute;
+  top: -15%;
+  left: -50%;
+  width: 26%;
+  height: 130%;
+  content: "";
+  transform: rotate(32deg);
+  background: linear-gradient(90deg, transparent, oklch(0.99 0.07 84 / 42%), transparent);
+  animation: seal-glint 6.5s ease-in-out 1.2s infinite;
+}
+
+.wax-cracks {
+  position: absolute;
+  inset: 8%;
+  width: 84%;
+  height: 84%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.wax-cracks path {
+  fill: none;
+  stroke: oklch(0.33 0.055 88 / 84%);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  opacity: 0;
+  filter: drop-shadow(0 1px 1px oklch(0.96 0.07 80 / 74%));
+}
+
+.wax-shard {
+  position: absolute;
+  left: 50%;
+  top: 49%;
+  width: 16%;
+  aspect-ratio: 0.9;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(145deg, oklch(0.89 0.08 78), oklch(0.67 0.077 75));
+}
+
+.wax-shard-one {
+  clip-path: polygon(3% 9%, 92% 1%, 63% 100%, 0 71%);
+}
+
+.wax-shard-two {
+  clip-path: polygon(9% 0, 100% 24%, 80% 93%, 0 69%);
+}
+
+.wax-shard-three {
+  clip-path: polygon(20% 2%, 97% 15%, 73% 100%, 0 76%);
+}
+
+.wax-shard-four {
+  clip-path: polygon(5% 0, 82% 16%, 100% 91%, 26% 78%);
+}
+
+.tap-instruction {
+  position: absolute;
+  top: var(--tap-y);
+  left: 50%;
+  z-index: 2;
+  margin: 0;
+  color: oklch(0.98 0.028 87);
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, calc(var(--stage-w) * 0.036), 1.2rem);
+  font-style: italic;
+  letter-spacing: 0;
+  text-shadow: 0 1px 4px oklch(0.23 0.032 112 / 75%);
+  transform: translateX(-50%);
+  animation: instruction-arrive 1s ease 0.8s both;
+}
+
+.curtain-film {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent;
+}
+
+.video-backdrop {
+  z-index: 0;
+  overflow: hidden;
+  background: oklch(0.25 0.028 137);
+}
+
+.video-backdrop video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(26px) brightness(0.68);
+  transform: scale(1.08);
+}
+
+.couple-reveal {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.35rem, 1.4vh, 0.9rem);
+  padding: max(2rem, env(safe-area-inset-top)) 1.25rem max(3.4rem, env(safe-area-inset-bottom));
+  color: var(--wedding-ink);
+  text-align: center;
+  pointer-events: none;
+}
+
+.reveal-glow {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  z-index: -1;
+  width: min(var(--stage-w), 35rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.98 0.086 80 / 31%) 0%, oklch(0.96 0.08 82 / 14%) 36%, transparent 72%);
+  filter: blur(10px);
+  transform: translate(-50%, -50%);
+}
+
+.reveal-intro,
+.reveal-name,
+.reveal-divider,
+.reveal-married {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  text-shadow: 0 1px 12px oklch(0.98 0.07 82 / 48%);
+}
+
+.reveal-intro {
+  padding-bottom: 0.25rem;
+  font-family: var(--font-editorial);
+  font-size: 0.875rem;
+  letter-spacing: 0;
+}
+
+.reveal-name {
+  width: 100%;
+  max-width: min(94vw, 54rem);
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, calc(var(--stage-w) * 0.15), 4.25rem);
+  font-weight: 400;
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+}
+
+.reveal-divider {
+  display: flex;
+  width: min(68vw, 18rem);
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.7rem, 3vw, 1.5rem);
+  margin: 0.1rem 0;
+}
+
+.reveal-divider > span:not(.divider-monogram) {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, oklch(0.95 0.09 82 / 90%));
+}
+
+.reveal-divider > span:first-child {
+  transform: scaleX(-1);
+}
+
+.divider-monogram {
+  flex: 0 0 auto;
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 2rem;
+}
+
+.divider-monogram i {
+  padding: 0 0.08em;
+  font-size: 0.7em;
+}
+
+.reveal-married {
+  padding-top: 0.3rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0;
+  color: var(--wedding-ink);
+  font-size: 0.75rem;
+  letter-spacing: 0;
+  text-shadow: 0 1px 8px oklch(0.98 0.07 82 / 52%);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.scroll-line {
+  width: 1.2rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.discover-indicator {
+  position: relative;
+  left: auto;
+  z-index: 1;
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  gap: 0.45rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid oklch(0.73 0.08 79 / 30%);
+  background: oklch(0.98 0.024 89 / 86%);
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  transform: translateY(0.5rem);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 500ms ease, transform 500ms ease, visibility 500ms ease;
+}
+
+.discover-indicator svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  animation: arrow-nudge 1.8s ease-in-out infinite;
+}
+
+.discover-indicator.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.opening-discover-rail {
+  position: absolute;
+  right: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  left: 1rem;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.opening-discover-rail .discover-indicator.is-visible {
+  pointer-events: auto;
+}
+
+.invitation-journey {
+  position: relative;
+  overflow: clip;
+  background:
+    radial-gradient(ellipse at 50% 8%, oklch(0.98 0.021 91 / 84%), transparent 68%),
+    var(--background);
+}
+
+.paper-section {
+  position: relative;
+  padding: clamp(4.2rem, 9vw, 8rem) 1.1rem;
+  overflow: clip;
+}
+
+.paper-section:nth-child(odd) {
+  background: linear-gradient(180deg, oklch(0.96 0.018 101 / 94%), oklch(0.94 0.025 94));
+}
+
+.paper-section:nth-child(even) {
+  background: linear-gradient(180deg, oklch(0.975 0.014 92), oklch(0.95 0.021 100));
+}
+
+.section-inner {
+  width: min(100%, 72rem);
+  margin-inline: auto;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.section-eyebrow,
+.venue-eyebrow,
+.designer-eyebrow {
+  margin: 0;
+  color: var(--wedding-gold);
+  font-family: var(--font-editorial);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  max-width: 100%;
+  margin: 0;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.7rem);
+  font-weight: 400;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.heading-flourish {
+  color: var(--wedding-gold);
+  font-size: 0.95rem;
+}
+
+.section-intro {
+  margin: -1.1rem auto 2.2rem;
+  color: oklch(0.43 0.03 120);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.scratch-section {
+  padding-top: clamp(4.5rem, 10vw, 8rem);
+  padding-bottom: clamp(5rem, 11vw, 9rem);
+}
+
+.scratch-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scratch-paper {
+  position: relative;
+  width: min(100%, 34rem);
+  padding: 0.55rem;
+  border: 1px solid oklch(0.69 0.07 79);
+  background: linear-gradient(135deg, oklch(0.86 0.076 79), oklch(0.98 0.024 89) 30%, oklch(0.89 0.063 78));
+  box-shadow: 0 14px 38px oklch(0.42 0.036 89 / 16%), inset 0 0 0 3px oklch(0.96 0.03 92);
+}
+
+.scratch-paper-inner {
+  position: relative;
+  min-height: clamp(26rem, 124vw, 35rem);
+  overflow: hidden;
+  border: 1px solid oklch(0.72 0.07 78 / 75%);
+  background:
+    radial-gradient(ellipse at center, oklch(1 0.008 100 / 40%), transparent 70%),
+    repeating-linear-gradient(4deg, transparent 0 5px, oklch(0.68 0.045 88 / 2%) 5px 6px),
+    oklch(0.96 0.025 91);
+}
+
+.date-underlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.6rem;
+  color: var(--wedding-ink);
+  text-align: center;
+}
+
+.date-underlay > svg {
+  width: 2rem;
+  height: 2rem;
+  color: var(--wedding-gold);
+  stroke-width: 1.2;
+}
+
+.date-script {
+  margin: 0;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 8vw, 3.2rem);
+  line-height: 1;
+}
+
+.date-script i {
+  color: var(--wedding-gold);
+  font-size: 0.7em;
+}
+
+.date-kicker,
+.date-month,
+.date-time {
+  margin: 0;
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+}
+
+.date-number {
+  margin: 0.3rem 0;
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 6rem;
+  line-height: 0.9;
+}
+
+.date-month {
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.date-time {
+  color: oklch(0.46 0.035 115);
+}
+
+.date-rule {
+  width: 5rem;
+  height: 1px;
+  margin-top: 0.35rem;
+  background: linear-gradient(90deg, transparent, var(--wedding-gold), transparent);
+}
+
+.scratch-surface {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.scratch-paper.is-revealed .scratch-surface {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms ease;
+}
+
+.scratch-callout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  width: min(82%, 18rem);
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border: 1px solid oklch(0.98 0.03 84 / 75%);
+  color: oklch(0.97 0.033 87);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  text-align: center;
+  text-shadow: 0 1px 5px oklch(0.35 0.03 75 / 55%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.scratch-callout-mark {
+  color: oklch(0.99 0.075 84);
+  font-size: 1.2rem;
+}
+
+.scratch-corner {
+  position: absolute;
+  z-index: 2;
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  pointer-events: none;
+}
+
+.scratch-corner-one { top: 0.55rem; left: 0.7rem; }
+.scratch-corner-two { top: 0.55rem; right: 0.7rem; }
+.scratch-corner-three { bottom: 0.55rem; left: 0.7rem; }
+.scratch-corner-four { bottom: 0.55rem; right: 0.7rem; }
+
+.rose-petal {
+  position: absolute;
+  z-index: 3;
+  top: -2rem;
+  left: var(--petal-left);
+  width: 0.7rem;
+  height: 1rem;
+  border-radius: 88% 18% 75% 26%;
+  background: radial-gradient(ellipse at 30% 25%, oklch(0.99 0.018 82), oklch(0.87 0.039 68));
+  opacity: 0;
+  transform: rotate(calc(var(--petal-index) * 37deg));
+  pointer-events: none;
+}
+
+.petal-in-motion {
+  animation: petal-fall var(--petal-duration) linear var(--petal-delay) infinite;
+}
+
+.formal-section { display: block; }
+.formal-inner { width: min(100%, 60rem); }
+
+.formal-invitation {
+  position: relative;
+  width: min(100%, 55rem);
+  padding: clamp(2.3rem, 8vw, 5rem) clamp(1rem, 8vw, 5rem);
+  border: 1px solid oklch(0.69 0.065 78);
+  outline: 1px solid oklch(0.73 0.057 81 / 64%);
+  outline-offset: 0.42rem;
+  background:
+    repeating-linear-gradient(2deg, transparent 0 7px, oklch(0.7 0.04 80 / 2%) 7px 8px),
+    radial-gradient(ellipse at 50% 40%, oklch(1 0.009 96), oklch(0.962 0.023 92));
+  box-shadow: 0 22px 55px oklch(0.37 0.04 105 / 12%), inset 0 0 30px oklch(0.8 0.06 81 / 10%);
+  color: var(--wedding-ink);
+  text-align: center;
+}
+
+.formal-topline,
+.formal-request,
+.formal-details p,
+.formal-address {
+  color: oklch(0.39 0.035 119);
+  font-size: 0.89rem;
+  line-height: 1.75;
+}
+
+.formal-topline {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.formal-couple {
+  margin: 0 auto 1rem;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.formal-request {
+  max-width: 30rem;
+  margin: 0 auto 1.4rem;
+}
+
+.formal-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.1rem auto;
+  color: var(--wedding-gold);
+  font-size: 0.9rem;
+}
+
+.formal-rule::before,
+.formal-rule::after {
+  width: clamp(3.5rem, 20vw, 7rem);
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, oklch(0.67 0.067 79));
+}
+
+.formal-rule::after { transform: scaleX(-1); }
+
+.formal-details p { margin: 0.35rem 0; }
+
+.formal-invitation h3 {
+  margin: 0.5rem 0 0.2rem;
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 500;
+}
+
+.formal-address { margin: 0; }
+
+.formal-side-ornament {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 0.15rem;
+  color: oklch(0.69 0.065 78 / 60%);
+  font-size: clamp(2rem, 8vw, 4.4rem);
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.formal-side-ornament-bottom {
+  right: 0.15rem;
+  left: auto;
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.countdown-section {
+  background: linear-gradient(155deg, oklch(0.91 0.045 99), oklch(0.97 0.025 91) 45%, oklch(0.92 0.035 103)) !important;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: min(100%, 52rem);
+  margin-inline: auto;
+}
+
+.countdown-tile {
+  position: relative;
+  display: flex;
+  min-height: 8rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid oklch(0.71 0.07 78);
+  outline: 1px solid oklch(0.8 0.043 82 / 70%);
+  outline-offset: -0.32rem;
+  background: linear-gradient(140deg, oklch(0.99 0.013 95), oklch(0.94 0.04 92));
+  box-shadow: 0 8px 18px oklch(0.43 0.04 98 / 10%), inset 0 0 22px oklch(0.8 0.05 80 / 12%);
+}
+
+.countdown-value {
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 8vw, 4.3rem);
+  line-height: 0.95;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  color: var(--wedding-gold);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.countdown-tile-flower {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.75rem;
+  color: oklch(0.72 0.075 80 / 76%);
+  font-size: 0.8rem;
+}
+
+.celebration-complete {
+  margin: 0;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.venue-composition {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: min(100%, 58rem);
+  margin-inline: auto;
+  border: 1px solid oklch(0.72 0.065 79 / 76%);
+  background: oklch(0.98 0.016 93);
+  box-shadow: 0 18px 42px oklch(0.35 0.038 105 / 10%);
+}
+
+.venue-map-art {
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 76% 15%, oklch(0.88 0.044 100) 0 12%, transparent 12.5%),
+    radial-gradient(ellipse at 20% 75%, oklch(0.86 0.06 130) 0 18%, transparent 18.5%),
+    linear-gradient(35deg, oklch(0.93 0.04 106), oklch(0.89 0.044 100));
+}
+
+.venue-map-art::before,
+.venue-map-art::after {
+  position: absolute;
+  width: 75%;
+  height: 1px;
+  content: "";
+  background: oklch(0.99 0.012 90 / 84%);
+  transform: rotate(-24deg);
+}
+
+.venue-map-art::before { top: 37%; left: -5%; }
+.venue-map-art::after { top: 68%; right: -15%; transform: rotate(33deg); }
+
+.map-river {
+  position: absolute;
+  top: -10%;
+  right: 26%;
+  width: 2.8rem;
+  height: 130%;
+  border-radius: 50%;
+  background: oklch(0.76 0.04 195 / 35%);
+  transform: rotate(31deg);
+}
+
+.map-garden {
+  position: absolute;
+  width: 5rem;
+  aspect-ratio: 1;
+  border: 1px solid oklch(0.55 0.07 131 / 28%);
+  border-radius: 50%;
+  background: radial-gradient(circle, oklch(0.69 0.07 131 / 25%) 0 42%, transparent 43%);
+}
+
+.map-garden-one { top: 12%; left: 12%; }
+.map-garden-two { right: 11%; bottom: 8%; width: 7rem; }
+
+.map-path {
+  position: absolute;
+  width: 50%;
+  height: 60%;
+  border: 1px dashed oklch(0.68 0.055 79 / 48%);
+  border-color: oklch(0.68 0.055 79 / 48%) transparent transparent;
+  border-radius: 50%;
+}
+
+.map-path-one { top: 5%; left: 15%; transform: rotate(30deg); }
+.map-path-two { right: 9%; bottom: 0; transform: rotate(205deg); }
+
+.map-pin-mark {
+  position: absolute;
+  top: 47%;
+  left: 52%;
+  display: grid;
+  width: 3rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid oklch(0.7 0.071 78);
+  border-radius: 50%;
+  background: oklch(0.99 0.02 91 / 88%);
+  color: var(--wedding-gold);
+  box-shadow: 0 5px 16px oklch(0.4 0.035 100 / 18%);
+  transform: translate(-50%, -50%);
+}
+
+.map-pin-mark svg { width: 1.15rem; height: 1.15rem; }
+
+.map-compass {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.95rem;
+  color: oklch(0.53 0.046 121);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.map-compass i { color: var(--wedding-gold); font-size: 1rem; }
+
+.venue-details {
+  position: relative;
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.25rem;
+  text-align: center;
+}
+
+.venue-ornament { color: var(--wedding-gold); font-size: 1.7rem; }
+
+.venue-details h3 {
+  margin: 0.5rem 0;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+
+.venue-address {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.45rem;
+  margin: 0.5rem 0 1.4rem;
+  color: oklch(0.43 0.034 120);
+  font-size: 0.88rem;
+}
+
+.venue-address svg { width: 1rem; height: 1rem; color: var(--wedding-gold); }
+
+.venue-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--wedding-gold);
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: gap 180ms ease;
+}
+
+.venue-link:hover { gap: 0.7rem; }
+.venue-link svg { width: 1rem; height: 1rem; }
+
+.demo-note {
+  margin: 0.9rem 0 0;
+  color: oklch(0.53 0.027 115);
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
+.events-section {
+  padding-bottom: clamp(5rem, 10vw, 8.5rem);
+}
+
+.events-intro {
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  width: min(100%, 66rem);
+  margin-inline: auto;
+}
+
+.event-card {
+  --event-ink: var(--wedding-ink);
+  --event-accent: var(--wedding-gold);
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border: 1px solid oklch(0.71 0.061 79 / 70%);
+  background: oklch(0.98 0.016 93);
+  box-shadow: 0 10px 28px oklch(0.37 0.04 95 / 10%);
+  transition: box-shadow 300ms ease;
+}
+
+.event-card:hover { box-shadow: 0 18px 38px oklch(0.37 0.04 95 / 15%); }
+
+.event-card--mayun { --event-ink: oklch(0.36 0.075 72); --event-accent: oklch(0.64 0.12 77); }
+.event-card--mehndi { --event-ink: oklch(0.32 0.07 147); --event-accent: oklch(0.67 0.079 83); }
+.event-card--baraat { --event-ink: oklch(0.38 0.095 25); --event-accent: oklch(0.62 0.082 75); }
+.event-card--walima { --event-ink: oklch(0.42 0.035 20); --event-accent: oklch(0.68 0.057 60); }
+
+.event-art-frame {
+  position: relative;
+  aspect-ratio: 0.86;
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.event-artwork {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+}
+
+.event-card-title {
+  position: absolute;
+  inset: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid oklch(0.81 0.073 80 / 65%);
+  pointer-events: none;
+}
+
+.event-card-title::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: radial-gradient(ellipse, transparent 10%, oklch(0.98 0.02 91 / 18%));
+}
+
+.event-card--mehndi .event-card-title::before { background: radial-gradient(ellipse, transparent 10%, oklch(0.2 0.055 146 / 15%)); }
+
+.event-title-sparkle {
+  z-index: 1;
+  color: var(--event-accent);
+  font-size: 1.2rem;
+}
+
+.event-card-title h3 {
+  z-index: 1;
+  margin: 0;
+  color: var(--event-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 9vw, 3.45rem);
+  font-weight: 400;
+  text-shadow: 0 1px 12px oklch(0.97 0.028 90 / 82%);
+}
+
+.event-card--mehndi .event-card-title h3 { color: oklch(0.98 0.024 91); text-shadow: 0 2px 12px oklch(0.17 0.06 146 / 80%); }
+
+.event-copy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 1.3rem 0.9rem 1.45rem;
+  text-align: center;
+}
+
+.event-date {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  color: oklch(0.42 0.034 113);
+  font-size: 0.8rem;
+}
+
+.event-date svg { width: 0.95rem; height: 0.95rem; color: var(--event-accent); }
+
+.event-description {
+  margin: 0;
+  color: var(--event-ink);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
+.event-open-action {
+  width: auto;
+  max-width: 100%;
+  margin-top: 0.25rem;
+  padding-inline: 0.6rem;
+  color: var(--event-ink);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  white-space: normal;
+}
+
+.event-open-action svg { width: 0.9rem; height: 0.9rem; }
+
+.envelope-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 1rem;
+  background: radial-gradient(ellipse at 50% 40%, oklch(0.3 0.035 135 / 82%), oklch(0.14 0.02 135 / 94%));
+  backdrop-filter: blur(6px);
+}
+
+.event-envelope-modal {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: min(40rem, 92svh);
+  place-items: center;
+  align-content: center;
+  gap: 1.4rem;
+}
+
+.envelope-modal-close {
+  position: fixed;
+  top: max(0.9rem, env(safe-area-inset-top));
+  right: 0.9rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid oklch(0.85 0.06 85 / 60%);
+  border-radius: 50%;
+  background: oklch(0.97 0.02 92);
+  color: oklch(0.3 0.04 130);
+}
+
+.envelope-modal-close svg { width: 1.15rem; height: 1.15rem; }
+
+.envelope-hint {
+  margin: 0;
+  color: oklch(0.95 0.04 88);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  text-shadow: 0 1px 8px oklch(0.1 0.02 135 / 70%);
+  animation: hint-pulse 2s ease-in-out infinite;
+}
+
+@keyframes hint-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+/* ---------- Envelope ---------- */
+.envelope-animation {
+  --w: min(86vw, 26rem, 48svh);
+  --env-a: oklch(0.5 0.085 148);
+  --env-b: oklch(0.34 0.07 150);
+  position: relative;
+  width: var(--w);
+  height: calc(var(--w) * 0.68);
+  margin-top: calc(var(--w) * 0.92);
+  font-size: calc(var(--w) / 21);
+  perspective: 90em;
+  filter: drop-shadow(0 1.6em 2em oklch(0.08 0.02 135 / 55%));
+}
+
+.event-card--mayun .envelope-animation { --env-a: oklch(0.82 0.13 85); --env-b: oklch(0.68 0.12 78); }
+.event-card--mehndi .envelope-animation { --env-a: oklch(0.5 0.085 148); --env-b: oklch(0.32 0.07 150); }
+.event-card--baraat .envelope-animation { --env-a: oklch(0.58 0.14 25); --env-b: oklch(0.4 0.12 22); }
+.event-card--walima .envelope-animation { --env-a: oklch(0.95 0.035 80); --env-b: oklch(0.84 0.05 70); }
+
+.envelope-back,
+.envelope-pocket,
+.event-envelope-flap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.envelope-back {
+  z-index: 1;
+  border-radius: 0.35em;
+  background: linear-gradient(160deg, var(--env-b), var(--env-a));
+  filter: brightness(0.82);
+}
+
+.envelope-pocket { z-index: 3; }
+
+.envelope-pocket span { position: absolute; inset: 0; border-radius: 0.35em; }
+.envelope-front-left { clip-path: polygon(0 0, 52% 54%, 0 100%); background: linear-gradient(90deg, var(--env-a), var(--env-b)); filter: brightness(1.04); }
+.envelope-front-right { clip-path: polygon(100% 0, 48% 54%, 100% 100%); background: linear-gradient(270deg, var(--env-a), var(--env-b)); filter: brightness(0.96); }
+.envelope-front-bottom { clip-path: polygon(0 100%, 50% 50%, 100% 100%); background: linear-gradient(0deg, var(--env-a), var(--env-b)); filter: brightness(1.08); }
+
+.event-envelope-flap {
+  z-index: 4;
+  bottom: auto;
+  height: 56%;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, var(--env-b), var(--env-a));
+  transform-origin: top center;
+  transform-style: preserve-3d;
+}
+
+.envelope-seal {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  z-index: 5;
+  display: grid;
+  width: 4.4em;
+  height: 4.4em;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, oklch(0.93 0.1 88), oklch(0.66 0.11 76));
+  box-shadow: 0 0.3em 0.9em oklch(0.1 0.02 100 / 45%), inset 0 0 0 0.2em oklch(0.8 0.1 82 / 60%);
+  color: oklch(0.32 0.06 80);
+  font-family: var(--font-display);
+  font-size: 1.15em;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.envelope-seal i { font-size: 0.75em; }
+
+.envelope-tap {
+  position: absolute;
+  inset: -1em;
+  z-index: 8;
+  border: 0;
+  border-radius: 0.5em;
+  background: transparent;
+  cursor: pointer;
+}
+
+.envelope-tap:focus-visible { outline: 2px solid oklch(0.9 0.1 85); }
+
+/* ---------- White card ---------- */
+/* Card ka size container hai; andar ka text cqw units mein hai, isliye har screen par card ke andar hi rehta hai. */
+.mini-invitation-sheet {
+  position: absolute;
+  bottom: 2%;
+  left: 6%;
+  z-index: 2;
+  width: 88%;
+  aspect-ratio: 0.86;
+  overflow: hidden;
+  container-type: size;
+  border: 1px solid oklch(0.82 0.05 85);
+  background:
+    radial-gradient(ellipse at 50% 0%, oklch(1 0 0), oklch(0.985 0.008 92)),
+    #fff;
+  box-shadow: 0 0.5em 1.6em oklch(0.1 0.02 100 / 28%);
+  color: var(--event-ink);
+  text-align: center;
+  transform-origin: bottom center;
+}
+
+.mini-invitation-sheet::before {
+  position: absolute;
+  inset: 3cqw;
+  border: 1px solid var(--event-accent);
+  content: "";
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.mini-card-content {
+  position: absolute;
+  inset: 7cqw 8cqw 16cqw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5cqw;
+}
+
+.mini-card-content > * { max-width: 100%; margin: 0; overflow-wrap: anywhere; line-height: 1.15; }
+.mini-card-ornament { color: var(--event-accent); font-size: 6cqw; }
+.mini-card-kicker { font-size: 2.9cqw; letter-spacing: 0.28em; text-transform: uppercase; color: oklch(0.5 0.03 120); }
+.mini-card-couple { font-family: var(--font-display); font-size: 8cqw; }
+.mini-card-content h2 { color: var(--event-ink); font-family: var(--font-display); font-size: 13cqw; font-weight: 500; line-height: 1; }
+.mini-card-divider { width: 20cqw; height: 1px; margin: 0.5cqw 0; background: var(--event-accent); }
+.mini-card-date { font-family: var(--font-display); font-size: 6cqw; }
+.mini-card-time { display: inline-flex; align-items: center; gap: 1.5cqw; font-size: 4.4cqw; }
+.mini-card-time svg { width: 1em; height: 1em; color: var(--event-accent); }
+.mini-card-venue { font-family: var(--font-display); font-size: 6.2cqw; font-weight: 600; }
+.mini-card-address { font-size: 3.8cqw; color: oklch(0.45 0.03 120); }
+
+.designer-section {
+  padding-top: 3.2rem;
+  padding-bottom: max(3.2rem, env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, oklch(0.91 0.038 101), oklch(0.95 0.024 92)) !important;
+  text-align: center;
+}
+
+.designer-credit-content { width: min(100%, 38rem); margin-inline: auto; }
+.designer-divider { color: var(--wedding-gold); font-size: 1.2rem; }
+.designer-eyebrow { margin: 0.5rem 0; }
+.designer-credit-content h2 { margin: 0; color: var(--wedding-ink); font-family: var(--font-display); font-size: clamp(1.8rem, 5vw, 2.7rem); font-weight: 400; overflow-wrap: anywhere; }
+.designer-credit-content > p:not(.designer-eyebrow) { margin: 0.55rem 0 1.35rem; color: oklch(0.47 0.03 118); font-family: var(--font-display); font-size: 1.05rem; font-style: italic; }
+
+.designer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem 1.1rem;
+}
+
+.designer-links a {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 100%;
+  color: var(--wedding-ink);
+  font-size: 0.78rem;
+  text-decoration-color: oklch(0.65 0.07 80 / 60%);
+  text-underline-offset: 0.22rem;
+}
+
+.designer-links a > svg { width: 1rem; height: 1rem; flex-shrink: 0; color: var(--wedding-gold); }
+.designer-links a span { min-width: 0; overflow-wrap: anywhere; }
+
+@keyframes petal-fall {
+  0% { opacity: 0; transform: translate3d(0, -1rem, 0) rotate(0deg); }
+  10% { opacity: 0.68; }
+  85% { opacity: 0.48; }
+  100% { opacity: 0; transform: translate3d(var(--petal-drift), 38rem, 0) rotate(440deg); }
+}
+
+@keyframes arrow-nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(0.2rem); }
+}
+
+@keyframes seal-glint {
+  0%,
+  65% {
+    left: -50%;
+    opacity: 0;
+  }
+  72% {
+    opacity: 0.7;
+  }
+  87%,
+  100% {
+    left: 128%;
+    opacity: 0;
+  }
+}
+
+@keyframes cover-arrive {
+  from {
+    opacity: 0.65;
+    transform: scale(1.018);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes instruction-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-scene {
+    min-height: min(31rem, 100svh);
+  }
+
+  .couple-reveal {
+    gap: 0.45rem;
+  }
+
+  .reveal-divider {
+    font-size: 1.7rem;
+  }
+
+  .reveal-married {
+    font-size: 1.1rem;
+  }
+
+  .paper-section {
+    padding-inline: 0.9rem;
+  }
+
+  .formal-side-ornament {
+    display: none;
+  }
+
+  .countdown-grid {
+    gap: 0.55rem;
+  }
+
+  .countdown-tile {
+    min-height: 7.4rem;
+  }
+
+  .event-envelope-modal {
+    min-height: min(34rem, 84svh);
+  }
+}
+
+@media (min-width: 600px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .venue-composition {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .venue-map-art {
+    min-height: 24rem;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.15rem;
+  }
+
+  .event-art-frame {
+    aspect-ratio: 0.9;
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+
+  .event-art-frame {
+    aspect-ratio: 0.78;
+  }
+
+  .event-copy {
+    padding-inline: 0.65rem;
+  }
+}
+
+@media (max-height: 560px) and (orientation: landscape) {
+  .couple-reveal {
+    gap: 0.1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .reveal-divider { font-size: 1.3rem; }
+  .reveal-married { font-size: 0.95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .discover-indicator svg,
+  .petal-in-motion {
+    animation: none !important;
+  }
+}
+
+
+/* ---------- Scroll lock: video + naam animation khatam hone tak ---------- */
+html.scroll-locked,
+body.scroll-locked {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+/* ---------- Scratch card: sirf date ---------- */
+.date-kicker {
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.date-day {
+  margin: 0;
+  color: oklch(0.46 0.035 115);
+  font-family: var(--font-editorial);
+  font-size: 0.8rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.date-number { font-size: clamp(5.5rem, 26vw, 8rem); }
+
+/* ---------- Main card ---------- */
+.formal-event {
+  margin: 0.2rem 0 0;
+  color: var(--wedding-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4.5vw, 1.7rem);
+  font-style: italic;
+}
+
+/* ---------- Google map ---------- */
+.venue-map-art { background: oklch(0.93 0.04 106); }
+
+.venue-map-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: sepia(0.18) saturate(0.85) hue-rotate(-8deg);
+}
+
+.venue-map-art::before,
+.venue-map-art::after { display: none; }
+
+/* ---------- Designer credits: halka, elegant ---------- */
+.designer-links a {
+  padding: 0.55rem 1rem;
+  border: 1px solid oklch(0.72 0.065 79 / 55%);
+  border-radius: 999px;
+  background: oklch(0.985 0.014 92 / 70%);
+  text-decoration: none;
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.designer-links a:hover {
+  border-color: var(--wedding-gold);
+  box-shadow: 0 8px 20px oklch(0.45 0.05 90 / 14%);
+  transform: translateY(-2px);
+}
+
+
+/* ---------- Responsive polish ---------- */
+.formal-invitation { max-width: 100%; margin-inline: auto; }
+.formal-couple { overflow-wrap: anywhere; }
+
+@media (max-width: 599px) {
+  .event-grid { width: min(100%, 24rem); }
+  .section-intro { padding-inline: 0.5rem; font-size: 1.1rem; }
+  .scratch-paper { width: min(100%, 26rem); }
+  .venue-map-art { min-height: 16rem; }
+  .designer-links { flex-direction: column; }
+  .designer-links a { width: min(100%, 17rem); justify-content: center; }
+}
+
+@media (min-width: 768px) {
+  .formal-topline, .formal-request, .formal-details p, .formal-address { font-size: 1.05rem; }
+  .section-eyebrow { font-size: 0.8rem; }
+  .countdown-tile { min-height: 10rem; }
+  .countdown-label { font-size: 0.82rem; }
+  .venue-details { padding: 3rem 2rem; }
+  .event-open-action { font-size: 1.1rem; }
+}
+
+@media (min-width: 1280px) {
+  .section-inner { width: min(100%, 78rem); }
+  .event-grid { width: min(100%, 74rem); gap: 1.6rem; }
+}
+
+img, video, iframe { max-width: 100%; }
+
+/* Main card ke corners par halki gold nishaniyan */
+.formal-invitation::before,
+.formal-invitation::after {
+  position: absolute;
+  color: oklch(0.69 0.065 78 / 70%);
+  content: "✣";
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.formal-invitation::before { top: 0.9rem; left: 0.9rem; }
+.formal-invitation::after { right: 0.9rem; bottom: 0.9rem; }
+
+.formal-details,
+.formal-address { overflow-wrap: anywhere; }
+
+@media (min-width: 1024px) {
+  .formal-invitation { padding-block: 5.5rem; }
+  .formal-couple { font-size: 5.8rem; }
+}
+
+/* =====================================================================
+   INVITATION LOOK: sage wallpaper ke upar scroll hote hue kagaz (sheets)
+   ===================================================================== */
+.invitation-journey {
+  position: relative;
+  z-index: 1;
+  background: none;
+}
+
+.paper-section,
+.paper-section:nth-child(odd),
+.paper-section:nth-child(even),
+.countdown-section {
+  background: transparent !important;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(0.75rem, 3vw, 2rem);
+  overflow: visible;
+}
+
+.invitation-journey > .paper-section:first-child { padding-top: clamp(2.5rem, 7vw, 5rem); }
+
+.sheet {
+  position: relative;
+  width: min(100%, 62rem);
+  padding: clamp(2.6rem, 6vw, 4.6rem) clamp(1.1rem, 5vw, 3.5rem);
+  border: 1px solid oklch(0.72 0.075 80);
+  background:
+    repeating-linear-gradient(3deg, transparent 0 7px, oklch(0.7 0.04 85 / 3%) 7px 8px),
+    radial-gradient(ellipse at 50% 0%, oklch(0.995 0.01 95), oklch(0.955 0.025 92));
+  box-shadow:
+    0 2.2rem 4rem oklch(0.12 0.03 140 / 45%),
+    0 0.4rem 0.9rem oklch(0.12 0.03 140 / 25%),
+    inset 0 0 3rem oklch(0.8 0.07 82 / 14%);
+}
+
+.sheet::before {
+  position: absolute;
+  inset: 0.65rem;
+  border: 1px solid oklch(0.72 0.075 80 / 60%);
+  content: "";
+  pointer-events: none;
+}
+
+.sheet--dark {
+  border-color: oklch(0.72 0.09 82);
+  background:
+    radial-gradient(ellipse at 50% 0%, oklch(0.42 0.06 140), transparent 70%),
+    linear-gradient(165deg, oklch(0.34 0.05 142), oklch(0.24 0.04 145));
+  color: oklch(0.96 0.03 92);
+}
+
+.sheet--dark::before { border-color: oklch(0.8 0.09 84 / 55%); }
+.sheet--dark .section-heading h2 { color: oklch(0.97 0.035 92); }
+.sheet--dark .section-eyebrow,
+.sheet--dark .heading-flourish { color: oklch(0.84 0.1 86); }
+.sheet--dark .celebration-complete { color: oklch(0.96 0.035 92); }
+
+/* ---------- Countdown: sunehri rings ---------- */
+.countdown-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 4vw, 2rem) 1rem;
+  width: min(100%, 48rem);
+}
+
+.countdown-ring {
+  position: relative;
+  width: 100%;
+  max-width: 9.5rem;
+  margin-inline: auto;
+  aspect-ratio: 1;
+  container-type: inline-size;
+}
+
+.countdown-ring svg { width: 100%; height: 100%; overflow: visible; }
+
+.ring-track,
+.ring-progress { fill: none; stroke-width: 3; }
+.ring-track { stroke: oklch(0.9 0.05 90 / 16%); }
+
+.ring-progress {
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px oklch(0.85 0.12 86 / 70%));
+  transition: stroke-dashoffset 0.9s linear;
+}
+
+.ring-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+}
+
+.countdown-ring .countdown-value {
+  color: oklch(0.97 0.04 92);
+  font-size: 30cqw;
+  font-weight: 500;
+}
+
+.countdown-ring .countdown-label {
+  color: oklch(0.82 0.1 86);
+  font-size: 8.5cqw;
+  letter-spacing: 0.22em;
+}
+
+.countdown-note {
+  margin: 2rem 0 0;
+  color: oklch(0.85 0.08 88);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-style: italic;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .countdown-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* ---------- Scratch card: sunehri foil ticket ---------- */
+.scratch-paper {
+  border: 0;
+  padding: 0.7rem;
+  background: linear-gradient(135deg, #9c7a35, #f0dc9f 25%, #b88f46 50%, #f3e1a8 75%, #9c7a35);
+  box-shadow: 0 1.4rem 2.6rem oklch(0.2 0.04 100 / 30%), inset 0 0 0 1px oklch(0.98 0.05 90 / 60%);
+}
+
+.scratch-paper-inner {
+  background:
+    radial-gradient(ellipse at 50% 38%, oklch(1 0.01 95), oklch(0.955 0.03 90)),
+    oklch(0.96 0.025 91);
+}
+
+.scratch-callout {
+  top: 58%;
+  color: oklch(0.3 0.06 70);
+  border-color: oklch(0.32 0.06 70 / 55%);
+  background: oklch(0.96 0.06 88 / 55%);
+  backdrop-filter: blur(2px);
+  text-shadow: 0 1px 0 oklch(0.98 0.05 90 / 80%);
+  animation: callout-pulse 2.2s ease-in-out infinite;
+}
+
+.scratch-callout-mark { color: oklch(0.4 0.08 70); }
+
+@keyframes callout-pulse { 0%, 100% { opacity: 0.8; } 50% { opacity: 1; } }
+
+.date-underlay { gap: 0.55rem; z-index: 0; }
+
+.date-sunburst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  width: 140%;
+  aspect-ratio: 1;
+  background: repeating-conic-gradient(from 0deg, oklch(0.85 0.08 85 / 28%) 0 6deg, transparent 6deg 15deg);
+  mask-image: radial-gradient(circle, #000 0%, transparent 62%);
+  transform: translate(-50%, -50%);
+  animation: sunburst-spin 60s linear infinite;
+}
+
+@keyframes sunburst-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.date-monogram {
+  display: grid;
+  width: 4.6rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--wedding-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.25rem oklch(0.96 0.025 91), 0 0 0 calc(0.25rem + 1px) oklch(0.72 0.075 80 / 60%);
+  color: var(--wedding-gold);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.date-number {
+  background: linear-gradient(180deg, #d9b867, #8d6a27 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 500;
+  filter: drop-shadow(0 2px 0 oklch(0.98 0.03 90));
+}
+
+.confetti-piece {
+  position: absolute;
+  z-index: 6;
+  width: 0.5rem;
+  height: 0.85rem;
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* ---------- Venue / events / card sheets ---------- */
+.venue-composition { border-color: oklch(0.72 0.075 80 / 80%); }
+.formal-inner { width: min(100%, 56rem); }
+.formal-invitation { box-shadow: 0 2.2rem 4rem oklch(0.12 0.03 140 / 45%), inset 0 0 30px oklch(0.8 0.06 81 / 10%); }
+
+/* ---------- Credits: wallpaper par gehra green footer ---------- */
+footer.designer-section.paper-section {
+  width: min(100% - 1.5rem, 44rem);
+  padding: 3rem 1.25rem;
+  margin: clamp(1rem, 4vw, 3rem) auto clamp(1.5rem, 5vw, 3rem);
+  border: 1px solid oklch(0.72 0.09 82);
+  background:
+    radial-gradient(ellipse at 50% 0%, oklch(0.42 0.06 140), transparent 70%),
+    linear-gradient(165deg, oklch(0.34 0.05 142), oklch(0.24 0.04 145)) !important;
+  box-shadow: 0 1.6rem 3rem oklch(0.1 0.03 140 / 45%);
+}
+
+.designer-credit-content h2 { color: oklch(0.97 0.035 92); }
+.designer-credit-content > p:not(.designer-eyebrow) { color: oklch(0.86 0.05 92); }
+.designer-eyebrow,
+.designer-divider { color: oklch(0.84 0.1 86); }
+.designer-links a { color: oklch(0.97 0.03 92); border-color: oklch(0.8 0.09 84 / 55%); background: oklch(0.97 0.03 92 / 8%); }
+.designer-links a > svg { color: oklch(0.84 0.1 86); }
+
+
+/* =====================================================================
+   Video ke aakhri frame (champagne set) ke upar frosted ivory panels
+   ===================================================================== */
+.sheet {
+  border-color: oklch(0.74 0.085 82);
+  background: linear-gradient(180deg, oklch(0.99 0.02 92 / 78%), oklch(0.965 0.03 90 / 72%));
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  box-shadow: 0 1.8rem 3.5rem oklch(0.45 0.07 80 / 28%), inset 0 0 0 1px oklch(1 0 0 / 55%);
+}
+
+.sheet--dark {
+  background: linear-gradient(160deg, oklch(0.95 0.045 88 / 82%), oklch(0.88 0.06 82 / 80%));
+  color: var(--wedding-ink);
+}
+
+.sheet--dark::before { border-color: oklch(0.65 0.09 80 / 55%); }
+.sheet--dark .section-heading h2,
+.sheet--dark .celebration-complete { color: var(--wedding-ink); }
+.sheet--dark .section-eyebrow,
+.sheet--dark .heading-flourish { color: oklch(0.52 0.09 78); }
+
+.ring-track { stroke: oklch(0.5 0.08 80 / 20%); }
+.ring-progress { filter: drop-shadow(0 0 2px oklch(0.7 0.12 82 / 55%)); }
+.countdown-ring .countdown-value { color: var(--wedding-ink); }
+.countdown-ring .countdown-label { color: oklch(0.5 0.09 78); }
+.countdown-note { color: oklch(0.4 0.05 105); }
+
+footer.designer-section.paper-section {
+  border-color: oklch(0.74 0.085 82);
+  background: linear-gradient(180deg, oklch(0.99 0.02 92 / 78%), oklch(0.93 0.04 88 / 74%)) !important;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1.6rem 3rem oklch(0.45 0.07 80 / 28%);
+}
+
+.designer-credit-content h2 { color: var(--wedding-ink); }
+.designer-credit-content > p:not(.designer-eyebrow) { color: oklch(0.38 0.04 110); }
+.designer-eyebrow,
+.designer-divider { color: oklch(0.52 0.09 78); }
+.designer-links a { color: var(--wedding-ink); border-color: oklch(0.65 0.09 80 / 55%); background: oklch(1 0.01 92 / 55%); }
+.designer-links a > svg { color: oklch(0.52 0.09 78); }
+
+
+/* Scroll par wahi champagne set ki damask deewar halki halki ubharti hai (bg image, video se match) */
+.stage-veil {
+  background:
+    linear-gradient(180deg, oklch(0.97 0.035 90 / 52%), oklch(0.94 0.05 86 / 62%)),
+    url("./assets/champagne-damask.jpg") center top / clamp(30rem, 55vw, 46rem) auto repeat;
+  opacity: calc(var(--veil, 0) * 0.95);
+}
+
+
+/* =====================================================================
+   Pre-wedding cards: cute + animated
+   ===================================================================== */
+.event-card {
+  position: relative;
+  overflow: visible;
+  padding: 0.6rem 0.6rem 0.4rem;
+  border: 1px solid oklch(0.74 0.085 82);
+  border-radius: 1.9rem;
+  background: linear-gradient(180deg, oklch(0.995 0.014 94), oklch(0.965 0.03 90));
+  box-shadow: 0 1rem 2rem oklch(0.45 0.07 80 / 22%), inset 0 0 0 0.3rem oklch(1 0 0 / 55%);
+  animation: card-float 6s ease-in-out infinite;
+  transition: transform 350ms cubic-bezier(0.2, 0.9, 0.3, 1.3), box-shadow 350ms ease;
+}
+
+.event-card:nth-child(2) { animation-delay: -2s; }
+.event-card:nth-child(3) { animation-delay: -4s; }
+
+.event-card:hover {
+  animation-play-state: paused;
+  transform: translateY(-8px) rotate(-1.2deg) scale(1.02);
+  box-shadow: 0 1.8rem 3rem oklch(0.45 0.07 80 / 32%), inset 0 0 0 0.3rem oklch(1 0 0 / 55%);
+}
+
+@keyframes card-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -0.55rem; }
+}
+
+/* arched (mehraab) shape wali artwork */
+.event-art-frame {
+  overflow: hidden;
+  border-radius: 50% 50% 1.3rem 1.3rem / 24% 24% 1.3rem 1.3rem;
+  border: 2px solid oklch(0.78 0.085 82);
+}
+
+.event-artwork { transition: transform 900ms ease; }
+.event-card:hover .event-artwork { transform: scale(1.07); }
+
+.event-badge {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem auto 0;
+  place-items: center;
+  border: 2px solid oklch(0.99 0.02 92);
+  border-radius: 50%;
+  background: linear-gradient(145deg, oklch(0.88 0.1 86), oklch(0.66 0.11 76));
+  box-shadow: 0 0.4rem 1rem oklch(0.4 0.07 80 / 35%);
+  color: oklch(0.99 0.02 92);
+  animation: badge-bob 2.6s ease-in-out infinite;
+}
+
+.event-badge svg { width: 1.35rem; height: 1.35rem; }
+
+@keyframes badge-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-4px) rotate(6deg); }
+}
+
+.event-card--baraat .event-badge { background: linear-gradient(145deg, oklch(0.72 0.14 28), oklch(0.5 0.13 24)); }
+.event-card--mehndi .event-badge { background: linear-gradient(145deg, oklch(0.62 0.1 148), oklch(0.4 0.08 150)); }
+.event-card--walima .event-badge { background: linear-gradient(145deg, oklch(0.82 0.08 20), oklch(0.66 0.1 15)); }
+
+.event-sparkle {
+  position: absolute;
+  z-index: 3;
+  color: oklch(0.78 0.13 86);
+  font-size: 1.1rem;
+  pointer-events: none;
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+
+.event-sparkle-one { top: -0.55rem; left: 12%; }
+.event-sparkle-two { top: 18%; right: -0.5rem; font-size: 1.4rem; animation-delay: -0.8s; }
+.event-sparkle-three { top: 46%; left: -0.5rem; font-size: 0.95rem; animation-delay: -1.5s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.6) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.25) rotate(25deg); }
+}
+
+.event-copy { padding: 0.5rem 0.4rem 0.8rem; }
+
+.event-open-action {
+  position: relative;
+  overflow: hidden;
+  gap: 0.45rem;
+  margin-top: 0.1rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid oklch(0.7 0.09 80 / 70%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, oklch(1 0.015 92), oklch(0.95 0.045 88));
+  box-shadow: 0 0.35rem 0.9rem oklch(0.45 0.07 80 / 18%);
+  transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.event-open-action::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(100deg, transparent 30%, oklch(1 0.05 92 / 80%) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: button-shine 3.8s ease-in-out infinite;
+}
+
+@keyframes button-shine {
+  0%, 55% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+
+.event-open-action:hover { transform: scale(1.05); box-shadow: 0 0.6rem 1.3rem oklch(0.45 0.07 80 / 28%); }
+.event-mail-icon { width: 1.05rem; height: 1.05rem; animation: mail-wiggle 3s ease-in-out infinite; }
+.event-open-action:hover svg:last-child { transform: translate(2px, -2px); }
+
+@keyframes mail-wiggle {
+  0%, 80%, 100% { transform: rotate(0); }
+  86% { transform: rotate(-14deg); }
+  92% { transform: rotate(12deg); }
+}
+
+@media (max-width: 599px) {
+  .event-grid { gap: 2.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-card, .event-badge, .event-sparkle, .event-mail-icon, .event-open-action::after { animation: none; }
+}
+
+
+/* "Tap to Open" — saaf, nazar aane wala, halka dhadakta hua */
+.tap-instruction {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.6em 1.4em;
+  border: 1px solid oklch(0.88 0.09 86 / 75%);
+  border-radius: 999px;
+  background: oklch(0.24 0.04 135 / 48%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: oklch(0.98 0.04 90);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.6vmin, 1.55rem);
+  font-style: italic;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem oklch(0.15 0.03 135 / 45%);
+  text-shadow: 0 1px 6px oklch(0.15 0.03 135 / 70%);
+  animation: instruction-arrive 1s ease 0.8s both, tap-glow 2.6s ease-in-out 1.8s infinite;
+}
+
+.tap-instruction span { color: oklch(0.86 0.11 86); font-size: 0.7em; font-style: normal; }
+
+@keyframes tap-glow {
+  0%, 100% { box-shadow: 0 0.4rem 1.4rem oklch(0.15 0.03 135 / 45%), 0 0 0 0 oklch(0.9 0.1 86 / 0%); }
+  50% { box-shadow: 0 0.4rem 1.4rem oklch(0.15 0.03 135 / 45%), 0 0 1.6rem 0.2rem oklch(0.9 0.1 86 / 45%); }
+}
+
+.event-card:nth-child(4) { animation-delay: -1s; }
+.event-card--mayun .event-badge { background: linear-gradient(145deg, oklch(0.86 0.15 85), oklch(0.7 0.15 62)); }
+
+/* Modal card: program ki list */
+.mini-card-schedule {
+  display: grid;
+  gap: 1.2cqw;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-card-schedule li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.8cqw;
+  font-size: 4cqw;
+  text-align: left;
+}
+
+.mini-card-schedule svg { width: 1.1em; height: 1.1em; color: var(--event-accent); }
+.mini-card-schedule b { font-weight: 600; white-space: nowrap; }
+.mini-card-content--dense { gap: 1cqw; }
+.mini-card-content--dense h2 { font-size: 11cqw; }
+.mini-card-content--dense .mini-card-couple { font-size: 6.6cqw; }
+.mini-card-content--dense .mini-card-date { font-size: 5.2cqw; }
+.mini-card-content--dense .mini-card-venue { font-size: 5.4cqw; }
+.mini-card-content--dense .mini-card-schedule li { font-size: 3.6cqw; }
+
+/* Main card: dono khandaan */
+.formal-families {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem 1.4rem;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.formal-family { max-width: 15rem; }
+.family-name { margin: 0; color: var(--wedding-ink); font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+.family-parent { margin: 0.15rem 0 0; color: oklch(0.45 0.04 110); font-size: 0.82rem; font-style: italic; letter-spacing: 0.04em; }
+.family-and { color: var(--wedding-gold); font-family: var(--font-display); font-size: 1.8rem; font-style: italic; }
+
+@media (max-width: 599px) {
+  .formal-families { flex-direction: column; gap: 0.1rem; }
+  .family-and { font-size: 1.5rem; line-height: 1; }
+}
+
+.venue-note {
+  margin: 1rem 0 0;
+  color: oklch(0.42 0.05 110);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.formal-closing {
+  margin: 0.4rem 0 0;
+  color: oklch(0.42 0.05 110);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+}
